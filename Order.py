@@ -1,11 +1,11 @@
 def display_sorted_numbers(numbers_list):
-    """Affiche les nombres triés par ordre décroissant."""
+    """Affiche les nombres triés par ordre décroissant avec style."""
     if numbers_list:
-        print("Liste des nombres triés par ordre décroissant :")
+        print("\n🔽 Liste des nombres triés par ordre décroissant 🔽\n")
         for num in numbers_list:
-            print(num)
+            print("   ", num)
     else:
-        print("Aucun nombre valide n'a été saisi.")
+        print("\n❌ Aucun nombre valide n'a été saisi. ❌\n")
 
 try:
     # Demander à l'utilisateur de saisir des nombres séparés par des '@'
@@ -34,4 +34,4 @@ try:
     display_sorted_numbers(numbers_list)
 
 except Exception as e:
-    print("Erreur :", e)
+    print("\n❌ Erreur :", e, "❌\n")

@@ -15,3 +15,5 @@ dict_coordinates = {key: 7 if value > 7 else value for key, value in dict_coordi
 
 # Affichage des coordonnées mises à jour
 print("Coordonnées mises à jour:", list(dict_coordinates.items()))
+
+
