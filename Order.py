@@ -1,14 +1,30 @@
-# Demander à l'utilisateur de saisir des nombres séparés par des "@"
-input_string = input("Entrez des nombres séparés par des '@' : ")
+try:
+    # Demander à l'utilisateur de saisir des nombres séparés par des '@'
+    input_string = input("Entrez des nombres séparés par des '@' : ")
 
-# Séparer la chaîne d'entrée en utilisant "@" comme séparateur
-numbers_str_list = input_string.split("@")
+    # Vérifier si la chaîne est vide
+    if not input_string:
+        raise ValueError("La chaîne d'entrée est vide.")
 
-# Convertir chaque élément de la liste de chaînes en entier
-numbers_list = [int(num) for num in numbers_str_list]
+    # Séparer la chaîne d'entrée en utilisant "@" comme séparateur
+    numbers_str_list = input_string.split("@")
 
-# Classer les nombres par ordre décroissant
-numbers_list.sort(reverse=True)
+    # Convertir chaque élément de la liste de chaînes en entier
+    numbers_list = []
+    for num_str in numbers_str_list:
+        try:
+            num = int(num_str)
+            numbers_list.append(num)
+        except ValueError:
+            print(f"Attention : '{num_str}' n'est pas un nombre entier et sera ignoré.")
 
-# Afficher la liste classée
-print("Liste des nombres triés par ordre décroissant :", numbers_list)
+    # Classer les nombres par ordre décroissant
+    numbers_list.sort(reverse=True)
+
+    # Afficher la liste classée
+    if numbers_list:
+        print("Liste des nombres triés par ordre décroissant :", numbers_list)
+    else:
+        print("Aucun nombre valide n'a été saisi.")
+except Exception as e:
+    print("Erreur :", e)
