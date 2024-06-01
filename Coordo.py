@@ -1,3 +1,6 @@
+# Liste de coordonnées de points x, y
+coordinates = [(4,5), (9,3), (12,8), (13,7), (18,6), (20,9)]
+
 # Remplissage de la liste d'ordonnées avec compréhension de liste
 ordinates = [7 if y > 7 else y for x, y in coordinates]
 
