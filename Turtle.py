@@ -1,4 +1,6 @@
 import turtle
+import tkinter as tk
+from tkinter import simpledialog
 
 def draw_letter(letter, color):
     """Dessine une lettre avec une couleur spécifiée."""
@@ -14,13 +16,17 @@ def draw_name(name, color):
         draw_letter(letter, color)
 
 def main():
-    # Demander à l'utilisateur d'entrer son nom
-    nom = input("Entrez votre nom: ")
-    
-    # Valider que l'entrée est une chaîne de caractères alphabetique
-    while not nom.isalpha():
-        print("Erreur : Veuillez entrer uniquement des lettres.")
-        nom = input("Entrez votre nom: ")
+    # Initialiser la fenêtre Tkinter
+    root = tk.Tk()
+    root.withdraw()  # Cacher la fenêtre principale
+
+    # Demander à l'utilisateur d'entrer son nom via une boîte de dialogue
+    nom = simpledialog.askstring("Entrer votre nom", "Quel est votre nom?")
+
+    # Valider que l'entrée est une chaîne de caractères alphabétiques
+    while not nom or not nom.isalpha():
+        tk.messagebox.showerror("Erreur", "Veuillez entrer uniquement des lettres.")
+        nom = simpledialog.askstring("Entrer votre nom", "Quel est votre nom?")
 
     # Configuration initiale de la tortue
     turtle.speed(1)
